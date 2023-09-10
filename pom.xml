@@ -22,6 +22,7 @@
 		<cloudhub.application.name>jenkins-cicd</cloudhub.application.name>
 		<environment>Sandbox</environment>
 		<workerType>MICRO</workerType>
+		<workers>1</workers>
 	</properties>
 
 	<build>
@@ -50,6 +51,7 @@
 						<password>${password}</password>
 						<applicationName>${cloudhub.application.name}</applicationName>
 						<environment>${environment}</environment>
+						<workers>${workers}</workers>
 						<workerType>${workerType}</workerType>
 						<properties>
 							<key>value</key>
