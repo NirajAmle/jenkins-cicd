@@ -11,6 +11,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<configuration-properties doc:name="Configuration properties" doc:id="146bc3fc-fcf6-4758-891b-32900a4293e2" file="properties\config.yaml" />
 	<flow name="jenkins-cicdFlow" doc:id="faf2d40e-b16c-4c68-89bd-3b79f419e456" >
 		<http:listener doc:name="Listener" doc:id="48310740-bf70-4df6-9f35-5e2c3b4697d1" config-ref="HTTP_Listener_config" path="/cicdtest"/>
+		<logger level="INFO" doc:name="Logging Request" doc:id="df222c43-f588-49f4-809c-cb791cf2e1b5" message="Request received for processing"/>
 		<ee:transform doc:name="Transform Message" doc:id="e3afd9e1-450a-4de3-96d8-187f7d1a077e" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -21,6 +22,6 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Logger" doc:id="c21051a4-fe65-4641-b515-d261a2706a90" message="#[payload]"/>
+		<logger level="INFO" doc:name="Logging Response" doc:id="c21051a4-fe65-4641-b515-d261a2706a90" message="#[payload]"/>
 	</flow>
 </mule>
